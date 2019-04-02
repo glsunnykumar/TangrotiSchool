@@ -61,8 +61,8 @@ namespace TangrotiSchool.Models.DB
                 SqlParameter userParameter = new SqlParameter("@username", userName);
                 SqlParameter pwdParameter = new SqlParameter("@password", Password);
                 string sqlQuery = "EXEC [dbo].[LoginByUserNamePassword]" + "@username,@password";
-                lst = await this.Query<LoginByUsernamePassword>().FromSql(sqlQuery, userName, Password).ToListAsync();
-
+                lst = await this.Query<LoginByUsernamePassword>().FromSql(sqlQuery, userParameter, pwdParameter).ToListAsync();
+                
             }
             catch(Exception ex)
             {
